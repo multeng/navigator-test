@@ -6,5 +6,5 @@ const appCodeName = document.querySelector('.app-code-name');
 
 window.onload = () => {
   nav.innerText = navigator;
-  userAgen.innerText = navigator.userAgent;
+  userAgent.innerText = navigator.userAgent;
 }
