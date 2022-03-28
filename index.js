@@ -21,13 +21,17 @@ function checkBrowser() {
   if (isAndroid) {
     if (/edga/.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.emmx');
+      test.innerText = 'EDGE';
     } else if (/opt/.test(userAgent)) {
       changeLink('opera', 'com.opera.browser');
+      test.innerText = 'OPERA';
     } else if (/firefox/i.test(userAgent)) {
+      test.innerText = 'FIREFOX';
       changeLink('firefox', 'org.mozilla.firefox');
     } else if (/chrome/i.test(userAgent)) {
+      test.innerText = 'CHROME';
       changeLink('chrome', 'com.android.chrome');
-    }
+    } else test.innerText = 'DEFAULT';
   } else {
     if (/opt/.test(userAgent)) {
       changeLink('opera', 'com.opera.OperaTouch');
