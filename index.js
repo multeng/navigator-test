@@ -8,7 +8,7 @@ const isChrome = document.querySelector('.isChrome');
 
 
 window.onload = () => {
-  const userAgent = navigator.userAgent.toLowerCase;
+  const userAgent = navigator.userAgent.toLowerCase();
   nav.innerText = navigator;
   userAgentElement.innerText = userAgent;
   vendor.innerText = navigator.vendor;
