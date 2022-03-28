@@ -31,7 +31,7 @@ function checkBrowser() {
     } else if (/chrome/i.test(userAgent)) {
       test.innerText = 'CHROME';
       changeLink('chrome', 'com.android.chrome');
-    } else test.innerText = 'DEFAULT';
+    } else test.innerText = 'NEW DEFAULT';
   } else {
     if (/opt/.test(userAgent)) {
       changeLink('opera', 'com.opera.OperaTouch');
