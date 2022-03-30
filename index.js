@@ -72,7 +72,7 @@ window.onload = () => {
   const userAgent = navigator.userAgent.toLowerCase();
   nav.innerText = navigator;
   userAgentElement.innerText = userAgent;
-  vendor.innerText = navigator.vendor;
+  vendor.value = navigator.vendor;
   appCodeName.innerText = navigator.appCodeName;
   const user = detect.parse(navigator.userAgent);
   isChrome.innerText = /chrome/.test(userAgent);
