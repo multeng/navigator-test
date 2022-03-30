@@ -6,6 +6,7 @@ const mobile = document.querySelector('.mobile');
 const isChrome = document.querySelector('.isChrome');
 const test = document.querySelector('.test');
 const link = document.querySelector('.link');
+const copyButton = document.querySelector('.copy');
 
 let endpoint = 'metaaccess://[HWID]?app_name=[appname]&app_id=[appid]';
 let isAndroid = false;
@@ -15,6 +16,14 @@ function changeLink(appname, appid) {
   endpoint.replace('[appid]', appid);
 }
 
+function copy() {
+  vendor.select();
+  vendor.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(vendor.value);
+}
+
 function checkBrowser() {
   var userAgent = navigator.userAgent.toLowerCase();
 
@@ -22,7 +31,7 @@ function checkBrowser() {
     if (/edga/.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.emmx');
       test.innerText = 'EDGE';
-    } else if (/opt/.test(userAgent)) {
+    } else if (/opr/.test(userAgent)) {
       changeLink('opera', 'com.opera.browser');
       test.innerText = 'OPERA';
     } else if (/firefox/i.test(userAgent)) {
@@ -33,7 +42,7 @@ function checkBrowser() {
       changeLink('chrome', 'com.android.chrome');
     } else test.innerText = 'NEW DEFAULT';
   } else {
-    if (/opt/.test(userAgent)) {
+    if (/opr/.test(userAgent)) {
       changeLink('opera', 'com.opera.OperaTouch');
     } else if (/edgios/.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.msedge');
@@ -72,4 +81,5 @@ window.onload = () => {
   checkBrowser();
   endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
   link.href = endpoint;
+  copyButton.addEventListener('click', copy);
 };
