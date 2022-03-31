@@ -44,14 +44,19 @@ function checkBrowser() {
   } else {
     if (/opr/.test(userAgent)) {
       changeLink('opera', 'com.opera.OperaTouch');
+      test.innerText = 'OPERA';
     } else if (/edgios/i.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.msedge');
+      test.innerText = 'EDGE';
     } else if (/fxios/i.test(userAgent)) {
       changeLink('firefox', 'org.mozilla.ios.Firefox');
+      test.innerText = 'FIREFOX';
     } else if (/crios/i.test(userAgent)) {
       changeLink('chrome', 'com.google.chrome.ios');
+      test.innerText = 'CHROME';
     } else if (/safari/i.test(userAgent)) {
       changeLink('safari', 'com.apple.mobilesafari');
+      test.innerText = 'SAFARI';
     }
   }
 }
@@ -75,7 +80,7 @@ window.onload = () => {
   vendor.value = navigator.vendor;
   appCodeName.innerText = navigator.appCodeName;
   const user = detect.parse(navigator.userAgent);
-  isChrome.innerText = /chrome/i.test(userAgent);
+  isChrome.innerText = `IsChrome = ${/chrome/i.test(userAgent)}`;
   mobile.innerText = `Famaly version: ${user.browser.family}; Browser version: ${user.browser.version}; OS name: ${user.os.name}`;
   checkAndroid();
   checkBrowser();
