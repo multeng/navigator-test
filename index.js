@@ -25,13 +25,13 @@ function copy() {
 }
 
 function checkBrowser() {
-  var userAgent = navigator.userAgent.toLowerCase();
+  var userAgent = navigator.userAgent;
 
   if (isAndroid) {
-    if (/edga/.test(userAgent)) {
+    if (/edga/i.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.emmx');
       test.innerText = 'EDGE';
-    } else if (/opr/.test(userAgent)) {
+    } else if (/opr/i.test(userAgent)) {
       changeLink('opera', 'com.opera.browser');
       test.innerText = 'OPERA';
     } else if (/firefox/i.test(userAgent)) {
@@ -44,13 +44,13 @@ function checkBrowser() {
   } else {
     if (/opr/.test(userAgent)) {
       changeLink('opera', 'com.opera.OperaTouch');
-    } else if (/edgios/.test(userAgent)) {
+    } else if (/edgios/i.test(userAgent)) {
       changeLink('microsoft+edge', 'com.microsoft.msedge');
-    } else if (/fxios/.test(userAgent)) {
+    } else if (/fxios/i.test(userAgent)) {
       changeLink('firefox', 'org.mozilla.ios.Firefox');
-    } else if (/crios/.test(userAgent)) {
+    } else if (/crios/i.test(userAgent)) {
       changeLink('chrome', 'com.google.chrome.ios');
-    } else if (/safari/.test(userAgent)) {
+    } else if (/safari/i.test(userAgent)) {
       changeLink('safari', 'com.apple.mobilesafari');
     }
   }
@@ -60,7 +60,7 @@ function checkAndroid() {
   if (/Android/i.test(navigator.userAgent)) {
     isAndroid = true;
     return true;
-  } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  } else if (/iPhone|iPad|iPod|macintosh/i.test(navigator.userAgent)) {
     return true;
   } else if (/webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
     return true;
@@ -75,7 +75,7 @@ window.onload = () => {
   vendor.value = navigator.vendor;
   appCodeName.innerText = navigator.appCodeName;
   const user = detect.parse(navigator.userAgent);
-  isChrome.innerText = /chrome/.test(userAgent);
+  isChrome.innerText = /chrome/i.test(userAgent);
   mobile.innerText = `Famaly version: ${user.browser.family}; Browser version: ${user.browser.version}; OS name: ${user.os.name}`;
   checkAndroid();
   checkBrowser();
