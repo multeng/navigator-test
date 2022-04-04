@@ -74,7 +74,7 @@ function checkAndroid() {
 }
 
 window.onload = () => {
-  const userAgent = navigator.userAgent.toLowerCase();
+  const userAgent = navigator.userAgent;
   nav.innerText = navigator;
   userAgentElement.innerText = userAgent;
   vendor.value = navigator.vendor;
