@@ -7,6 +7,7 @@ const isChrome = document.querySelector('.isChrome');
 const test = document.querySelector('.test');
 const link = document.querySelector('.link');
 const copyButton = document.querySelector('.copy');
+const platform = document.querySelector('.platform');
 
 let endpoint = 'metaaccess://[HWID]?app_name=[appname]&app_id=[appid]';
 let isAndroid = false;
@@ -79,6 +80,7 @@ window.onload = () => {
   userAgentElement.innerText = userAgent;
   vendor.value = navigator.vendor;
   appCodeName.innerText = navigator.appCodeName;
+  platform.innerText = `Platform is ${navigator.platform}`
   const user = detect.parse(navigator.userAgent);
   isChrome.innerText = `IsChrome = ${/chrome/i.test(userAgent)}`;
   mobile.innerText = `Famaly version: ${user.browser.family}; Browser version: ${user.browser.version}; OS name: ${user.os.name}`;
