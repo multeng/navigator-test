@@ -108,9 +108,5 @@ window.onload = () => {
   endpoint = endpoint.replace('[HWID]', id);
   iOSButton.href = endpoint;
   link.href = endpoint;
-  iOSButton.addEventListener('click', function (ev) {
-    ev.preventDefault();
-    window.open(ev.target.href, '_blank');
-  });
   copyButton.addEventListener('click', copy);
 };
