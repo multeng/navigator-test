@@ -11,7 +11,8 @@ const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
 
-let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
+let endpoint =
+  'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
@@ -23,7 +24,7 @@ function copy() {
   vendor.select();
   vendor.setSelectionRange(0, 99999); /* For mobile devices */
 
-   /* Copy the text inside the text field */
+  /* Copy the text inside the text field */
   navigator.clipboard.writeText(vendor.value);
 }
 
@@ -70,15 +71,22 @@ function checkAndroid() {
     return true;
   } else if (/iPhone|iPad|iPod|macintosh/i.test(navigator.userAgent)) {
     return true;
-  } else if (/webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+  } else if (
+    /webOS|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
     return true;
   }
   return false;
 }
 
 function uuidv4() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-	(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
   );
 }
 
@@ -97,8 +105,12 @@ window.onload = () => {
   // checkBrowser();
   // endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
   const id = uuidv4();
-  endpoint = endpoint.replace('[HWID]', id);
+  endpoint = encodeURIComponent(endpoint.replace('[HWID]', id));
   iOSButton.href = endpoint;
   link.href = endpoint;
+  iOSButton.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    window.open(ev.target.href, '_blank');
+  });
   copyButton.addEventListener('click', copy);
 };
