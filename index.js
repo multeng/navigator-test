@@ -12,7 +12,7 @@ const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
 
 let endpoint =
-  'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
+  'metaaccess://[HWID]?app_name=Google%20Chrome&app_id=com.google.chrome.ios';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
