@@ -105,7 +105,7 @@ window.onload = () => {
   // checkBrowser();
   // endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
   const id = uuidv4();
-  endpoint = encodeURIComponent(endpoint.replace('[HWID]', id));
+  endpoint = endpoint.replace('[HWID]', id);
   iOSButton.href = endpoint;
   link.href = endpoint;
   iOSButton.addEventListener('click', function (ev) {
