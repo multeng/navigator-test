@@ -9,8 +9,9 @@ const link = document.querySelector('.link');
 const copyButton = document.querySelector('.copy');
 const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
+const iOSButton = document.querySelector('.ios-button');
 
-let endpoint = 'metaaccess://[HWID]?app_name=[appname]&app_id=[appid]';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
@@ -75,6 +76,12 @@ function checkAndroid() {
   return false;
 }
 
+function uuidv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+	(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
 window.onload = () => {
   const userAgent = navigator.userAgent;
   nav.innerText = navigator;
@@ -86,9 +93,12 @@ window.onload = () => {
   const user = detect.parse(navigator.userAgent);
   isChrome.innerText = `IsChrome = ${/chrome/i.test(userAgent)}`;
   mobile.innerText = `Famaly version: ${user.browser.family}; Browser version: ${user.browser.version}; OS name: ${user.os.name}`;
-  checkAndroid();
-  checkBrowser();
-  endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
+  // checkAndroid();
+  // checkBrowser();
+  // endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
+  const id = uuidv4();
+  endpoint.replace('[HWID]', id);
+  iOSButton.href = endpoint;
   link.href = endpoint;
   copyButton.addEventListener('click', copy);
 };
