@@ -5,13 +5,15 @@ const vendor = document.querySelector('.vendor');
 const mobile = document.querySelector('.mobile');
 const isChrome = document.querySelector('.isChrome');
 const test = document.querySelector('.test');
-const link = document.querySelector('.link');
-const copyButton = document.querySelector('.copy');
+// const link = document.querySelector('.link');
+// const copyButton = document.querySelector('.copy');
 const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
+const iOSButton2 = document.querySelector('.ios-button');
 
-let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
+let endpoint = 'metaaccess://[HWID]?';
+// let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
@@ -106,6 +108,7 @@ window.onload = () => {
   const id = uuidv4();
   endpoint = endpoint.replace('[HWID]', id);
   iOSButton.href = endpoint;
-  link.href = endpoint;
-  copyButton.addEventListener('click', copy);
+  iOSButton2.href = endpoint.slice(0, -1);
+  // link.href = endpoint;
+  // copyButton.addEventListener('click', copy);
 };
