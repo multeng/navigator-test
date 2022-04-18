@@ -10,7 +10,7 @@ const test = document.querySelector('.test');
 const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
-const iOSButton2 = document.querySelector('.ios-button');
+const iOSButton2 = document.querySelector('.ios-button2');
 
 let endpoint = 'metaaccess://[HWID]?';
 // let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
