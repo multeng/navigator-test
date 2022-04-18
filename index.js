@@ -12,8 +12,9 @@ const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
 const iOSButton2 = document.querySelector('.ios-button2');
 
-let endpoint = 'metaaccess://[HWID]?';
-// let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
+// let endpoint = 'metaaccess://[HWID]?';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.android.chrome://';
+let endpoint2 = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=chrome&app_id=googlechromes%3A%2F%2Fjira.epam.com';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
@@ -107,8 +108,9 @@ window.onload = () => {
   // endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
   const id = uuidv4();
   endpoint = endpoint.replace('[HWID]', id);
+  endpoint2 = endpoint2.replace('[HWID]', id);
   iOSButton.href = endpoint;
-  iOSButton2.href = endpoint.slice(0, -1);
+  iOSButton2.href = endpoint2;
   // link.href = endpoint;
   // copyButton.addEventListener('click', copy);
 };
