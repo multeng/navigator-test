@@ -13,7 +13,7 @@ const iOSButton = document.querySelector('.ios-button');
 const iOSButton2 = document.querySelector('.ios-button2');
 
 // let endpoint = 'metaaccess://[HWID]?';
-let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.android.chrome://';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios://';
 let endpoint2 = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=chrome&app_id=googlechromes%3A%2F%2Fjira.epam.com';
 let isAndroid = false;
 
