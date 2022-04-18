@@ -11,8 +11,7 @@ const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
 const iOSButton = document.querySelector('.ios-button');
 
-let endpoint =
-  'metaaccess://[HWID]?app_name=Safari&app_id=com.apple.mobilesafari';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
