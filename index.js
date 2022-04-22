@@ -13,8 +13,8 @@ const iOSButton = document.querySelector('.ios-button');
 const iOSButton2 = document.querySelector('.ios-button2');
 
 // let endpoint = 'metaaccess://[HWID]?';
-let endpoint = 'metaaccess://[HWID]?app_name=safari&app_id=';
-let endpoint2 = 'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
+let endpoint2 = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechrome';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
