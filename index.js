@@ -14,8 +14,8 @@ const iOSButton2 = document.querySelector('.ios-button2');
 const androidButton = document.querySelector('.andoid-button');
 
 // let endpoint = 'metaaccess://[HWID]?';
-let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechromes';
-let endpoint2 = 'metaaccess://[HWID]?app_name=chrome&app_id=googlechrome';
+let endpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.google.chrome.ios';
+let endpoint2 = 'metaaccess://[HWID]?app_name=safari&app_id=com.apple.mobilesafari';
 let androidEndpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.android.chrome';
 let isAndroid = false;
 
