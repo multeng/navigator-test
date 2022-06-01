@@ -9,19 +9,33 @@ const test = document.querySelector('.test');
 // const copyButton = document.querySelector('.copy');
 const platform = document.querySelector('.platform');
 const touchPoints = document.querySelector('.touch-points');
-const iOSButton = document.querySelector('.ios-button');
-const iOSButton2 = document.querySelector('.ios-button2');
+const iOSSafari = document.querySelector('.ios-safari');
+const iOSChrome = document.querySelector('.ios-chrome');
+const iOSFirefox = document.querySelector('.ios-firefox');
+const iOSOpera = document.querySelector('.ios-opera');
+const iOSEDGE = document.querySelector('.ios-edge');
 const androidButton = document.querySelector('.andoid-button');
 
 // let endpoint = 'metaaccess://[HWID]?';
-let endpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=chrome&app_id=googlechromes%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
-let endpoint2 = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=firefox&app_id=firefox%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
+let safariEndpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=safari&app_id=https%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
+let chromeEndpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=chrome&app_id=googlechromes%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
+let firefoxEndpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=firefox&app_id=firefox%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
+let operaEndpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=opera&app_id=touch-url%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
+let edgeEndpoint = 'https://mobile.metaaccess.opswat.com/[HWID]?app_name=microsoft+edge&app_id=https-intunemam%3A%2F%2F' + encodeURIComponent('multeng.github.io/navigator-test/');
 let androidEndpoint = 'metaaccess://[HWID]?app_name=chrome&app_id=com.android.chrome';
 let isAndroid = false;
 
 function changeLink(appname, appid) {
-  endpoint.replace('[appname]', appname);
-  endpoint.replace('[appid]', appid);
+  safariEndpoint.replace('[appname]', appname);
+  chromeEndpoint.replace('[appname]', appname);
+  firefoxEndpoint.replace('[appname]', appname);
+  operaEndpoint.replace('[appname]', appname);
+  edgeEndpoint.replace('[appname]', appname);
+  safariEndpoint.replace('[appid]', appid);
+  chromeEndpoint.replace('[appid]', appid);
+  firefoxEndpoint.replace('[appid]', appid);
+  operaEndpoint.replace('[appid]', appid);
+  edgeEndpoint.replace('[appid]', appid);
 }
 
 function copy() {
@@ -51,19 +65,19 @@ function checkBrowser() {
     } else test.innerText = 'NEW DEFAULT';
   } else {
     if (/opr/.test(userAgent)) {
-      changeLink('opera', 'com.opera.OperaTouch');
+      // changeLink('opera', 'com.opera.OperaTouch');
       test.innerText = 'OPERA';
     } else if (/edgios/i.test(userAgent)) {
-      changeLink('microsoft+edge', 'com.microsoft.msedge');
+      // changeLink('microsoft+edge', 'com.microsoft.msedge');
       test.innerText = 'EDGE';
     } else if (/fxios/i.test(userAgent)) {
-      changeLink('firefox', 'org.mozilla.ios.Firefox');
+      // changeLink('firefox', 'org.mozilla.ios.Firefox');
       test.innerText = 'FIREFOX';
     } else if (/crios/i.test(userAgent)) {
-      changeLink('chrome', 'com.google.chrome.ios');
+      // changeLink('chrome', 'com.google.chrome.ios');
       test.innerText = 'CHROME';
     } else if (/safari/i.test(userAgent)) {
-      changeLink('safari', 'com.apple.mobilesafari');
+      // changeLink('safari', 'com.apple.mobilesafari');
       test.innerText = 'SAFARI';
     }
   }
@@ -109,11 +123,17 @@ window.onload = () => {
   // checkBrowser();
   // endpoint.replace('[HWID]', 'sadadsa-sadasd-dsada213');
   const id = uuidv4();
-  endpoint = endpoint.replace('[HWID]', id);
-  endpoint2 = endpoint2.replace('[HWID]', id);
+  safariEndpoint = safariEndpoint.replace('[HWID]', id);
+  chromeEndpoint = chromeEndpoint.replace('[HWID]', id);
+  firefoxEndpoint = firefoxEndpoint.replace('[HWID]', id);
+  operaEndpoint = operaEndpoint.replace('[HWID]', id);
+  edgeEndpoint = edgeEndpoint.replace('[HWID]', id);
   androidEndpoint = androidEndpoint.replace('[HWID]', id);
-  iOSButton.href = endpoint;
-  iOSButton2.href = endpoint2;
+  iOSChrome.href = chromeEndpoint;
+  iOSFirefox.href = firefoxEndpoint;
+  iOSOpera.href = operaEndpoint;
+  iOSEDGE.href = edgeEndpoint;
+  iOSSafari.href = safariEndpoint;
   androidButton.href = androidEndpoint;
   // link.href = endpoint;
   // copyButton.addEventListener('click', copy);
